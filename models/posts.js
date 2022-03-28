@@ -29,7 +29,7 @@ const postSchema = new Schema({
     },
 });
 
-const Post = model("Plan", postSchema);
+const Post = model("Post", postSchema);
 
 function validatePost(post){
     const schema = Joi.object({
