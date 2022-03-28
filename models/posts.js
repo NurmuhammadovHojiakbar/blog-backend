@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const {Schema, model} = require("mongoose");
 const Joi = require("joi");
 
-const postSchema = new mongoose.Schema({
+const postSchema = new Schema({
     "title": {
         type: String,
         minlength: 3,
@@ -20,16 +20,16 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     "user_id": {
-        type: Schema.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true
     },
     "created_at": {
         type: Date,
-        default: new Date.now()
+        default: Date.now()
     },
 });
 
-const Post = mongoose.model("Plan", postSchema);
+const Post = model("Plan", postSchema);
 
 function validatePost(post){
     const schema = Joi.object({
